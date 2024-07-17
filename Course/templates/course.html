@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %} Course {% endblock %}
+{% block navbar %} {% endblock %}
+{% block content %}
+<body class="no-scroll">
+    
+</body>
+<div class="row" style="margin-left: auto; margin-right: auto; background-color: #F9F9F9;">
+    <div class="nav-rect" id="navbar">
+        <i class="bi bi-list icon left" id="sidebar-toggle"></i>
+        <i class="bi bi-gear-fill icon right"></i>
+        <i class="bi bi-person-fill icon right"></i>
+        <div class="extender" id="extender"></div>
+    </div>
+    <div class="sidebar" id="sidebar">
+          <div class="side-nav">
+            
+          <i class="bi bi-list icon left hidden" id="hidden"></i>
+          <i class="bi bi-house icon right" id="home" url="/"></i>
+          </div>
+        
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 5%;">   
+            <div class="circular-progress"> 75%</div> 
+            <h5>Conquering the ECG</h5>
+            <div class="search-box">     
+                <i class="bi bi-search"></i>
+                <input class="search" type='text' placeholder='Search'/>
+            </div>
+        </div>
+    <div class="sidebar-list">
+        <div class="section-header">
+            <div class="section-title" onclick="expandSection(this)">
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/>
+                1 - Preclinical
+            </div>
+            <div class="dropdown">
+                
+                <div class="section-list"> 
+                    <div class="section-name" onclick="window.location.href='/course/1-introduction';"> Introduction</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name" onclick="window.location.href='/course/2-setting-up-an-ecg';"> Setting Up an ECG</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Vector Basics</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Lead us to Success</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Augmented Leads</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Precordial Leads</div>  
+                    <span class="progress-dot" style="background-color: white;"></span>
+                </div>
+            </div>
+        </div>
+        <div class="section-header">
+            <div class="section-title" onclick="expandSection(this)">
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/>
+                2 - Clinical
+            </div>
+            <div class="dropdown">
+                
+                <div class="section-list"> 
+                    <div class="section-name"> Introduction</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Setting Up an ECG</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Vector Basics</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Lead us to Success</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Augmented Leads</div>  
+                    <span class="progress-dot"></span>
+                </div>
+                <div class="section-list"> 
+                    <div class="section-name"> Precordial Leads</div>  
+                    <span class="progress-dot" style="background-color: white;"></span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="section" onclick="window.location.href='/course/1-introduction';">
+            Introduction
+            <span class="progress-dot"></span>
+        </div>
+        <div class="section" onclick="window.location.href='/course/2-setting-up-an-ecg';">
+            Setting Up an ECG
+            <div class="progress-dot"></div>
+        </div>
+        <div class="section" onclick="window.location.href='/course/3-vector-basics';">
+            Vector Basics
+            <span class="progress-dot" style="background-color: white;"></span>
+        </div>
+        <div class="section" onclick="window.location.href='/course/4-lead-us-to-success';">
+            Lead us to Success
+        </div>
+        <div class="section" onclick="window.location.href='/course/5-augmented-leads';">
+            Augmented Leads
+        </div>
+        <div class="section" onclick="window.location.href='/course/6-precordial-leads';">
+            Precordial Leads
+        </div>
+        <div class="section" onclick="window.location.href='/course/1-introduction';">
+            Introduction
+        </div>
+        <div class="section" onclick="window.location.href='/course/2-setting-up-an-ecg';">
+            Setting Up an ECG
+        </div>
+        <div class="section" onclick="window.location.href='/course/3-vector-basics';">
+            Vector Basics
+        </div>
+        <div class="section" onclick="window.location.href='/course/4-lead-us-to-success';">
+            Lead us to Success
+        </div>
+        <div class="section" onclick="window.location.href='/course/5-augmented-leads';">
+            Augmented Leads
+        </div>
+        <div class="section" onclick="window.location.href='/course/6-precordial-leads';">
+            Precordial Leads
+        </div> -->
+    </div>
+    </div>
+    <div class="filter-before" id="filter" ></div>
+    <div class="column main-window" id="main-window">
+        <div class="content-area">
+            {{ html_content|safe }}
+            <div class="row" style="padding: 1rem;"> 
+                <div class="retry-button" > &larr; Previous</div>
+                <div class="submit-button">Complete and Continue &rarr; </div>
+            </div>
+        </div>
+        
+        <!-- <div class="row">
+            <div style="display: flex; position: relative; flex-direction: row;">
+                <img src="{{ url_for('static', filename='images/ECG.png') }}" class="schematic"/>
+                <span class="dot" style="top: 75%; left: 46%; background-color: green;" onclick = clicked(this) id="a" ></span>
+                <span class="dot" style="top: 20%; left: 50%;" onclick = clicked(this) id="b" ></span>
+                <span class="dot" style="top: 55%; left: 51%;" onclick = clicked(this) id="c" ></span>
+                <span class="dot" style="top: 80%; left: 54%;" onclick = clicked(this) id="d" ></span>
+            </div>
+            <img src="{{ url_for('static', filename='images/vector-a.png') }}" class="schematic" id="vector"/>
+        </div> -->
+    </div>
+</div>
+
+<script>
+    
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('sidebar-toggle');
+    const mainWindow = document.getElementById('main-window');
+    const navBar = document.getElementById('navbar');
+    const extender = document.getElementById('extender');
+    const hidden = document.getElementById('hidden'); 
+    
+    const filter = document.getElementById('filter');
+    const screenWidth = window.innerWidth;
+        if (screenWidth < 768) {
+            if (!sidebar.classList.contains('collapsed')) {
+                sidebar.classList.add('no-transition', 'collapsed');
+                extender.classList.add('no-transition', 'move-extender');
+                mainWindow.classList.add('no-transition', 'recentre');
+                navBar.classList.add('no-transition', 'move-navbar');
+                filter.classList.add('filter');
+                document.body.classList.remove('no-scroll');
+                setTimeout(function() {
+                sidebar.classList.remove('no-transition');
+                extender.classList.remove('no-transition');
+                mainWindow.classList.remove('no-transition');
+                navBar.classList.remove('no-transition');
+                }, 500);
+            }
+        } 
+</script>
+{% endblock %}

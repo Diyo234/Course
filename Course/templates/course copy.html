@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %} Course {% endblock %}
+{% block navbar %} {% endblock %}
+{% block content %}
+<div class="row" style="margin-left: auto; margin-right: auto; background-color: #F9F9F9;">
+    <div class="nav-rect" id="navbar">
+        <i class="bi bi-list icon left" id="sidebar-toggle"></i>
+        <i class="bi bi-gear-fill icon right"></i>
+        <i class="bi bi-person-fill icon right"></i>
+        
+        <div class="extender" id="extender"></div>
+    </div>
+    <div class="sidebar" id="sidebar">
+          <div class="side-nav">
+            
+          <i class="bi bi-list icon left hidden" id="hidden"></i>
+          <i class="bi bi-house icon right" id="home" url="/"></i>
+          </div>
+        
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; margin-top: 5%;">
+    <br>      
+    <h5>Conquering the ECG</h5> 
+    <br> 
+        <div class="progress" style="display:flex; width: 90%; height: 10px; background-color: white; border: 2px solid black;">
+            <div class="progress-bar" style="width: 50%; background-color: #00FF00;"></div>
+        </div>
+            <span style="color: #DCDCDC; font-size: 0.7rem; margin-left: 10%; margin-right: auto;">50% Complete</span> 
+        </div>
+    <div class="sidebar-list">
+        <div class="section" onclick="window.location.href='/course/1-introduction';">
+            Introduction
+            <span class="progress-dot"></span>
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/2-setting-up-an-ecg';">
+            Setting Up an ECG
+            <div class="progress-dot"></div>
+        </div>
+        <div class="section" onclick="window.location.href='/course/3-vector-basics';">
+            Vector Basics
+            <span class="progress-dot" style="background-color: white;"></span>
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/4-lead-us-to-success';">
+            Lead us to Success
+        </div>
+        <div class="section" onclick="window.location.href='/course/5-augmented-leads';">
+            Augmented Leads
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/6-precordial-leads';">
+            Precordial Leads
+        </div>
+        <div class="section" onclick="window.location.href='/course/1-introduction';">
+            Introduction
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/2-setting-up-an-ecg';">
+            Setting Up an ECG
+        </div>
+        <div class="section" onclick="window.location.href='/course/3-vector-basics';">
+            Vector Basics
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/4-lead-us-to-success';">
+            Lead us to Success
+        </div>
+        <div class="section" onclick="window.location.href='/course/5-augmented-leads';">
+            Augmented Leads
+            <!-- <img src="{{ url_for('static', filename='images/arrow.png') }}" class="arrow"/> -->
+        </div>
+        <div class="section" onclick="window.location.href='/course/6-precordial-leads';">
+            Precordial Leads
+        </div>
+    </div>
+    </div>
+    <div class="filter-before" id="filter" ></div>
+    <div class="column main" id="main">
+        <div class="content-area">
+            {{ html_content|safe }}
+            <div class="row" style="padding: 1rem;"> 
+                <div class="retry-button" > &larr; Previous</div>
+                <div class="submit-button">Complete and Continue &rarr; </div>
+            </div>
+        </div>
+        
+        <!-- <div class="row">
+            <div style="display: flex; position: relative; flex-direction: row;">
+                <img src="{{ url_for('static', filename='images/ECG.png') }}" class="schematic"/>
+                <span class="dot" style="top: 75%; left: 46%; background-color: green;" onclick = clicked(this) id="a" ></span>
+                <span class="dot" style="top: 20%; left: 50%;" onclick = clicked(this) id="b" ></span>
+                <span class="dot" style="top: 55%; left: 51%;" onclick = clicked(this) id="c" ></span>
+                <span class="dot" style="top: 80%; left: 54%;" onclick = clicked(this) id="d" ></span>
+            </div>
+            <img src="{{ url_for('static', filename='images/vector-a.png') }}" class="schematic" id="vector"/>
+        </div> -->
+    </div>
+</div>
+{% endblock %}
